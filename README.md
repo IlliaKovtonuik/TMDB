@@ -1,55 +1,45 @@
-<<<<<<< HEAD
-# Welcome to your Expo app 👋
+# 🎬 TMDB Movie App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A mobile application built with **React Native** and **Expo** to search, view, and save movie details using **The Movie Database (TMDB)** API.
 
-## Get started
+## ⚙️ Tech Stack
 
-1. Install dependencies
+- [Expo](https://expo.dev/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/) + Redux Persist
+- [Expo-router](https://docs.expo.dev/versions/latest/sdk/router/)
+- [EAS Build](https://docs.expo.dev/eas/)
+- [Axios](https://axios-http.com/)
+- [TMDB API](https://developer.themoviedb.org/)
 
-   ```bash
-   npm install
-   ```
+## 📁 Project Structure
 
-2. Start the app
+├── api/             # API requests to TMDB
+├── app/             # Expo router pages (screens)
+├── assets/          # Fonts, images, icons
+├── components/      # Shared reusable UI components
+├── helpers/         # Utility functions and formatters
+├── hooks/           # Custom React hooks
+├── store/           # Redux store and slices
+├── types/           # Global TypeScript types
+├── android/         # Android native project (auto-generated)
+├── node_modules/    # Project dependencies
+├── .env             # Environment variables (not committed)
+├── .gitignore       # Git ignore rules
+├── app.json         # Expo app configuration
+├── babel.config.js  # Babel configuration for Expo
+├── eas.json         # Expo EAS Build configuration
+├── env.d.ts         # Type declarations for .env
+├── expo-env.d.ts    # Type declarations for Expo environment
+├── package.json     # Project metadata and dependencies
+├── README.md        # Project documentation
+├── tsconfig.json    # TypeScript compiler options
 
-   ```bash
-    npx expo start
-   ```
+## 📁 How to use 
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-=======
-# TMDB
-Repository for test task WebbyLab
->>>>>>> bc8f8fc42e9dba6a4eb4e31ab27b4f8599239f34
+### General
+1. Clone the repository with `git clone https://github.com/IlliaKovtonuik/TMDB.git`
+2. Run `npm install` to install dependencies
+3. Start the app `npx expo start`
+4. Press A to open application on Android emulator or scan QR-Code to connect via Expo Go app.
