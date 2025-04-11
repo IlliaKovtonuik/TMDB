@@ -14,27 +14,28 @@ A mobile application built with **React Native** and **Expo** to search, view, a
 - [TMDB API](https://developer.themoviedb.org/)
 
 ## 📁 Project Structure
-
-├── api/             # API requests to TMDB
-├── app/             # Expo router pages (screens)
-├── assets/          # Fonts, images, icons
-├── components/      # Shared reusable UI components
-├── helpers/         # Utility functions and formatters
-├── hooks/           # Custom React hooks
-├── store/           # Redux store and slices
-├── types/           # Global TypeScript types
-├── android/         # Android native project (auto-generated)
-├── node_modules/    # Project dependencies
-├── .env             # Environment variables (not committed)
-├── .gitignore       # Git ignore rules
-├── app.json         # Expo app configuration
-├── babel.config.js  # Babel configuration for Expo
-├── eas.json         # Expo EAS Build configuration
-├── env.d.ts         # Type declarations for .env
-├── expo-env.d.ts    # Type declarations for Expo environment
-├── package.json     # Project metadata and dependencies
-├── README.md        # Project documentation
-├── tsconfig.json    # TypeScript compiler options
+<details>
+├── api/             # API requests to TMDB  
+├── app/             # Expo router pages (screens)  
+├── assets/          # Fonts, images, icons  
+├── components/      # Shared reusable UI components  
+├── helpers/         # Utility functions and formatters  
+├── hooks/           # Custom React hooks  
+├── store/           # Redux store and slices  
+├── types/           # Global TypeScript types  
+├── android/         # Android native project (auto-generated)  
+├── node_modules/    # Project dependencies  
+├── .env             # Environment variables (not committed)  
+├── .gitignore       # Git ignore rules  
+├── app.json         # Expo app configuration  
+├── babel.config.js  # Babel configuration for Expo  
+├── eas.json         # Expo EAS Build configuration  
+├── env.d.ts         # Type declarations for .env  
+├── expo-env.d.ts    # Type declarations for Expo environment  
+├── package.json     # Project metadata and dependencies  
+├── README.md        # Project documentation  
+├── tsconfig.json    # TypeScript compiler options  
+</details>
 
 ## 📁 How to use 
 
