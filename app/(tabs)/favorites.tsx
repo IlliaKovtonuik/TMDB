@@ -1,4 +1,3 @@
-// app/(tabs)/favorites.tsx
 import React from "react";
 import {
   View,

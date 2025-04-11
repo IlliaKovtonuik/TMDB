@@ -1,7 +1,5 @@
-// src/utils/filterAndSortMovies.ts
 import { Movie } from "../types/movie";
-
-export type SortOption = "alphabetical" | "rating" | "newest" | "oldest" | null;
+import { SortOption } from "@/types/movie";
 
 interface FilterOptions {
   onlyFavorites: boolean;

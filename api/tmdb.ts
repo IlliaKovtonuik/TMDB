@@ -5,6 +5,7 @@ import {
   MovieDetails,
   MovieImagesResponse,
   SearchResult,
+  Genre,
 } from "@/types/movie";
 
 export const fetchPopularMovies = async (
@@ -41,10 +42,12 @@ export const fetchMovieImages = async (
   );
   return response.data;
 };
+
 export const searchMoviesAdvanced = async (
   query: string
 ): Promise<SearchResult> => {
   const encodedQuery = encodeURIComponent(query);
+
   const [movieRes, personRes, genresRes] = await Promise.all([
     axiosInstance.get(`/search/movie`, {
       params: {
@@ -68,8 +71,12 @@ export const searchMoviesAdvanced = async (
     }),
   ]);
 
-  const titleMatches: Movie[] = movieRes.data.results;
-  let actorMatches: Movie[] = [];
+  const result: SearchResult = {
+    titleMatches: movieRes.data.results,
+    actorMatches: [],
+    genreMatches: [],
+  };
+
   const person = personRes.data.results?.[0];
   if (person) {
     const creditsRes = await axiosInstance.get(
@@ -80,11 +87,10 @@ export const searchMoviesAdvanced = async (
         },
       }
     );
-    actorMatches = creditsRes.data.cast;
+    result.actorMatches = creditsRes.data.cast;
   }
 
-  let genreMatches: Movie[] = [];
-  const matchedGenre = genresRes.data.genres.find((g: any) =>
+  const matchedGenre = genresRes.data.genres.find((g: Genre) =>
     g.name.toLowerCase().includes(query.toLowerCase())
   );
 
@@ -98,12 +104,8 @@ export const searchMoviesAdvanced = async (
         page: 1,
       },
     });
-    genreMatches = genreRes.data.results;
+    result.genreMatches = genreRes.data.results;
   }
 
-  return {
-    titleMatches,
-    actorMatches,
-    genreMatches,
-  };
+  return result;
 };

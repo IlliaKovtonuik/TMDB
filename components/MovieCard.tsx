@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Movie } from "@/types/movie";
 import { useRouter } from "expo-router";
+import { defaultImageUrl } from "@/helpers/const";
 interface MovieCardProps {
   movie: Movie;
 }
@@ -21,7 +22,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
           source={{
             uri: poster_path
               ? `https://image.tmdb.org/t/p/w185${poster_path}`
-              : "https://via.placeholder.com/185x278?text=No+Image",
+              : defaultImageUrl,
           }}
           style={styles.poster}
         />

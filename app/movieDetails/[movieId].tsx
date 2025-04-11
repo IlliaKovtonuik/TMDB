@@ -24,8 +24,11 @@ const MovieDetailsScreen: React.FC = () => {
   const router = useRouter();
   const [imageLoading, setImageLoading] = useState(true);
   const favorites = useAppSelector((state) => state.favorites.favorites);
-  const isFavorite = favorites.some((fav) => fav.id === movie?.id);
   const { movie, images, loading } = useMovieDetails(movieId);
+  const isFavorite = React.useMemo(() => {
+    if (!movie) return false;
+    return favorites.some((fav) => fav.id === movie.id);
+  }, [favorites, movie]);
   const dispatch = useAppDispatch();
 
   if (loading || !movie) {

@@ -1,4 +1,3 @@
-// src/store/slices/favoritesSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Movie } from "@/types/movie";
 

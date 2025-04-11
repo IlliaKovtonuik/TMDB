@@ -5,7 +5,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRouter } from "expo-router";
 import { useAppDispatch } from "@/store/store";
 import { removeFavorite } from "@/store/slices/favoritesSlice";
-
+import { defaultImageUrl } from "@/helpers/const";
 interface Props {
   movie: Movie;
 }
@@ -30,7 +30,7 @@ export const MovieCardHorizontal: React.FC<Props> = ({ movie }) => {
         source={{
           uri: movie.poster_path
             ? `https://image.tmdb.org/t/p/w185${movie.poster_path}`
-            : "https://via.placeholder.com/185x278?text=No+Image",
+            : defaultImageUrl,
         }}
         style={styles.image}
       />

@@ -77,3 +77,11 @@ export interface SearchResult {
   actorMatches: Movie[];
   genreMatches: Movie[];
 }
+export const sortOptions = {
+  Alphabetical: "alphabetical",
+  Rating: "rating",
+  Newest: "newest",
+  Oldest: "oldest",
+} as const;
+
+export type SortOption = (typeof sortOptions)[keyof typeof sortOptions];

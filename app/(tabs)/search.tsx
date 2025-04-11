@@ -14,6 +14,7 @@ import {
 import { MovieCard } from "@/components/MovieCard";
 import { useMovieSearch } from "@/hooks/useMovieSearch";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
+import { Movie } from "@/types/movie";
 export default function Search() {
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebouncedValue(query, 500);
@@ -30,7 +31,7 @@ export default function Search() {
     }
   }, [debouncedQuery]);
 
-  const renderSection = (title: string, data: any[]) => {
+  const renderSection = (title: string, data: Movie[]) => {
     if (!data?.length) return null;
 
     return (

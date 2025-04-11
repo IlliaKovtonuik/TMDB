@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   columnWrapper: {
-    justifyContent: "space-between", // ← важливо
+    justifyContent: "space-between",
     marginBottom: 16,
   },
   gridContent: {
