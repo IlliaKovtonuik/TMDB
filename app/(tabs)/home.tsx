@@ -5,11 +5,13 @@ import {
   ActivityIndicator,
   SafeAreaView,
   TouchableOpacity,
+  Platform,
 } from "react-native";
 import { useAppSelector } from "@/store/store";
 import { MoviesGrid } from "@/components/MoviesGrid";
 import { FilterModal } from "@/components/FilterModal";
-import { filterAndSortMovies, SortOption } from "@/helpers/filterAndSortMovies";
+import { filterAndSortMovies } from "@/helpers/filterAndSortMovies";
+import { SortOption } from "@/types/movie";
 import { usePopularMovies } from "@/hooks/usePopularMovies";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -30,7 +32,13 @@ export default function Home() {
   });
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#030014" }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: "#030014",
+        marginTop: Platform.OS === "android" ? 32 : 0,
+      }}
+    >
       {loading && page === 1 && !showFavorites ? (
         <View style={styles.centered}>
           <ActivityIndicator size="large" color="tomato" />

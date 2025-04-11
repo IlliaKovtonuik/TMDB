@@ -99,6 +99,7 @@ export default function Search() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 32,
     backgroundColor: "#030014",
     paddingHorizontal: 16,
   },

@@ -1,75 +1,89 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+} from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Movie } from "@/types/movie";
 import { useRouter } from "expo-router";
 import { defaultImageUrl } from "@/helpers/const";
 interface MovieCardProps {
   movie: Movie;
+  horizontal?: boolean;
 }
-
-export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
-  const { title, poster_path, vote_average } = movie;
+export const MovieCard: React.FC<MovieCardProps> = ({ movie, horizontal }) => {
   const router = useRouter();
 
   const handlePress = () => {
     router.push(`/movieDetails/${movie.id}`);
   };
   return (
-    <TouchableOpacity style={styles.card} onPress={handlePress}>
-      <View style={styles.card}>
-        <Image
-          source={{
-            uri: poster_path
-              ? `https://image.tmdb.org/t/p/w185${poster_path}`
-              : defaultImageUrl,
-          }}
-          style={styles.poster}
-        />
+    <TouchableOpacity onPress={handlePress} style={styles.card}>
+      <Image
+        source={{
+          uri: movie.poster_path
+            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            : defaultImageUrl,
+        }}
+        style={styles.image}
+        resizeMode="cover"
+      />
+      <View style={styles.info}>
         <Text style={styles.title} numberOfLines={2}>
-          {title}
+          {movie.title}
         </Text>
-        <View style={styles.row}>
-          <Ionicons
-            name="star"
-            size={14}
-            color="gold"
-            style={{ marginRight: 2 }}
-          />
-          <Text style={styles.rating}>{vote_average.toFixed(1)} / 10</Text>
+        <View style={styles.ratingRow}>
+          <Ionicons name="star" size={14} color="gold" />
+          <Text style={styles.rating}>
+            {movie.vote_average?.toFixed(1) ?? "N/A"} / 10
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
   );
 };
 
+const CARD_HEIGHT = 260;
+
 const styles = StyleSheet.create({
   card: {
-    flex: 1,
-    margin: 6,
-    maxWidth: 160,
-    alignItems: "center",
+    minWidth: 140,
+    backgroundColor: "#161225",
+    borderRadius: 12,
+    overflow: "hidden",
+    height: CARD_HEIGHT,
   },
-  poster: {
-    width: 160,
-    height: 220,
-    borderRadius: 6,
-    marginBottom: 4,
+  image: {
+    width: "100%",
+    minWidth: 140,
+    height: 190,
+  },
+  info: {
+    flex: 1,
+    paddingHorizontal: 8,
+    paddingTop: 8,
+    justifyContent: "space-between",
   },
   title: {
-    fontSize: 16,
-    lineHeight: 18,
-    color: "#9CA4AB",
-    fontWeight: "bold",
+    fontSize: 14,
+    fontWeight: "600",
     textAlign: "center",
-    marginBottom: 2,
+    color: "#e5e5e5",
+    lineHeight: 16,
+    marginTop: 6,
   },
-  row: {
+  ratingRow: {
     flexDirection: "row",
-    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 12,
   },
   rating: {
-    fontSize: 12,
-    color: "#9CA4AB",
+    marginLeft: 4,
+    fontSize: 13,
+    color: "#bbb",
   },
 });

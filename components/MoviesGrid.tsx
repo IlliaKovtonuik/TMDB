@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   SafeAreaView,
+  Dimensions,
 } from "react-native";
 import { Movie } from "@/types/movie";
 import { MovieCard } from "./MovieCard";
@@ -14,6 +15,9 @@ interface MoviesGridProps {
   onEndReached: () => void;
   loadingMore: boolean;
 }
+const { width } = Dimensions.get("window");
+const ITEM_HORIZONTAL_MARGIN = 16;
+const ITEM_WIDTH = (width - 16 * 2 - ITEM_HORIZONTAL_MARGIN * 2) / 2;
 
 export const MoviesGrid: React.FC<MoviesGridProps> = ({
   movies,
@@ -26,11 +30,15 @@ export const MoviesGrid: React.FC<MoviesGridProps> = ({
         data={movies}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
-        columnWrapperStyle={styles.columnWrapper}
-        renderItem={({ item }) => <MovieCard movie={item} />}
+        renderItem={({ item }) => (
+          <View style={styles.cardWrapper}>
+            <MovieCard movie={item} />
+          </View>
+        )}
+        columnWrapperStyle={styles.row}
+        contentContainerStyle={styles.content}
         onEndReached={onEndReached}
         onEndReachedThreshold={0.5}
-        contentContainerStyle={styles.listContent}
         ListFooterComponent={
           loadingMore ? (
             <View style={styles.footer}>
@@ -60,5 +68,18 @@ const styles = StyleSheet.create({
   },
   gridContent: {
     justifyContent: "center",
+  },
+  row: {
+    justifyContent: "space-between",
+    // paddingHorizontal: 16,
+  },
+  content: {
+    paddingTop: 16,
+    paddingBottom: 80,
+  },
+  cardWrapper: {
+    width: ITEM_WIDTH,
+    marginHorizontal: ITEM_HORIZONTAL_MARGIN,
+    marginBottom: 16,
   },
 });
