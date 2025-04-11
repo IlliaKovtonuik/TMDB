@@ -40,7 +40,16 @@ A mobile application built with **React Native** and **Expo** to search, view, a
 ## 📁 How to use 
 
 ### General
-1. Clone the repository with `git clone https://github.com/IlliaKovtonuik/TMDB.git`
-2. Run `npm install` to install dependencies
-3. Start the app `npx expo start`
+1. Clone the repository with 
+ ```bash
+ git clone https://github.com/IlliaKovtonuik/TMDB.git`
+  ```
+2. Run to install dependencies
+```bash
+npm install
+```
+3. Start the app 
+``bash
+npx expo start
+```
 4. Press A to open application on Android emulator or scan QR-Code to connect via Expo Go app.
