@@ -53,3 +53,10 @@ npm install
 npx expo start
 ```
 4. Press A to open application on Android emulator or scan QR-Code to connect via Expo Go app.
+
+## 📄 .env Example
+
+```bash
+TMDB_API_KEY=your_tmdb_bearer_token_here
+TMDB_BASE_URL=https://api.themoviedb.org/3
+```
