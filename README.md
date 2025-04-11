@@ -14,7 +14,7 @@ A mobile application built with **React Native** and **Expo** to search, view, a
 - [TMDB API](https://developer.themoviedb.org/)
 
 ## 📁 Project Structure
-<details>
+ ```bash
 ├── api/             # API requests to TMDB  
 ├── app/             # Expo router pages (screens)  
 ├── assets/          # Fonts, images, icons  
@@ -35,7 +35,7 @@ A mobile application built with **React Native** and **Expo** to search, view, a
 ├── package.json     # Project metadata and dependencies  
 ├── README.md        # Project documentation  
 ├── tsconfig.json    # TypeScript compiler options  
-</details>
+ ```
 
 ## 📁 How to use 
 
