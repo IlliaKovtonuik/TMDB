@@ -49,7 +49,7 @@ A mobile application built with **React Native** and **Expo** to search, view, a
 npm install
 ```
 3. Start the app 
-``bash
+```bash
 npx expo start
 ```
 4. Press A to open application on Android emulator or scan QR-Code to connect via Expo Go app.
